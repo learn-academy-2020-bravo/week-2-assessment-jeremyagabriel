@@ -78,25 +78,18 @@ var vowelTester2 = "throw"
 // Expected output: 3
 
 // Declare a function that takes in a string as an arg
-const firstVowelIndex = (str) => {
-  // Convert string to an array using split
-  let strArray = str.split("")
+const firstVowel = (str) => {
+  // Convert string to lower case and convert to an array using split
+  let strArray = str.toLowerCase().split("")
   // Declare local variable of all the vowels in an array
   let vowels = ["a", "e", "i", "o", "u"]
-  // Filter through array
-  let vowelArray = strArray.filter(letter => {
-    // Return only vowels into a new array
-    return vowels.includes(letter)
-  })
-  // Return the index of the first value from the vowelArray only if the index is >= 0
-  if (strArray.indexOf(vowelArray[0]) >= 0) return strArray.indexOf(vowelArray[0])
-  // Return statement if the string contained no vowels
-  else return `${str} doesn't contain a vowel`
+  // Use the .findIndex method to sort through the array and return the index number of the first value that fulfills equaling a vowel
+  return strArray.findIndex(letter => vowels.includes(letter))
 }
 
 //Check function passing in variables above
-console.log(firstVowelIndex(vowelTester1))
-console.log(firstVowelIndex(vowelTester2))
+console.log(firstVowel(vowelTester1))
+console.log(firstVowel(vowelTester2))
 
 
 // --------------------5) Create a function that takes three arguments - two numbers and a mathematical operation (+, -, *, /) and performs the given calculation. If the input tries to divide by 0, return: "Can't divide by 0!"
